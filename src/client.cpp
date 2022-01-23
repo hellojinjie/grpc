@@ -189,9 +189,10 @@ RawVector fetch(CharacterVector server, CharacterVector method, RawVector reques
   Rcout << "start grpc_channel_destroy call" << std::endl;
   grpc_channel_destroy(channel);
   channel = NULL;
-  Rcout << "start grpc_channel_destroy call" << std::endl;
+  Rcout << "after grpc_channel_destroy call" << std::endl;
   //gpr_free(cf->server_uri);
   
+  grpc_call_destroy(c);
   
   grpc_slice_unref(details);
   grpc_metadata_array_destroy(&initial_metadata_recv);
