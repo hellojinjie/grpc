@@ -136,9 +136,7 @@ RawVector fetch(CharacterVector server, CharacterVector method, RawVector reques
   op++;
   
   RGRPC_LOG("Starting batch...");
-  Rcout << "start grpc call" << std::endl;
   error = grpc_call_start_batch(c, ops, (size_t)(op - ops), tag(1), NULL);
-  Rcout << "after grpc call" << std::endl;
   if (error != GRPC_CALL_OK) { // 0
     stop("gRPC c++ call start failed");
   }
@@ -186,10 +184,8 @@ RawVector fetch(CharacterVector server, CharacterVector method, RawVector reques
   //drain_cq(cq);
   grpc_completion_queue_destroy(cq);
   cq = NULL;
-  Rcout << "start grpc_channel_destroy call" << std::endl;
   grpc_channel_destroy(channel);
   channel = NULL;
-  Rcout << "after grpc_channel_destroy call" << std::endl;
   //gpr_free(cf->server_uri);
   
   grpc_call_unref(c);
