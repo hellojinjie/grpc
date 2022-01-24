@@ -1,3 +1,6 @@
+# 说明
+R grpc 依赖于 grpc core C-API，而这层的 api 是不稳定的，我 fork 的这个版本只针对于特定的环境解决特定的问题。 
+
 # grpc
 
 An **R** library for [**GRPC**](https://grpc.io/) a high-performance, open-source universal RPC framework.
